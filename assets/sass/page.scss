@@ -74,29 +74,58 @@ header {
       align-items: center;
       padding: var(--space);
       z-index: 4;
-
       button, a {
          @include button-gray;
       }
-
       button[type=submit], a.black {
          @include button-black;
+      }
+   }
+
+   &.blue {
+      > header {
+         background-color: var(--blue);
+      }
+      footer.fixed {
+         button[type=submit], a.black {
+            @include button-blue;
+         }
+      }
+   }
+
+   &.green {
+      > header {
+         background-color: var(--gren);
+      }
+      footer.fixed {
+         button[type=submit], a.black {
+            @include button-green;
+         }
       }
    }
 }
 
 @media (min-width: 1200px) {
-
    .page {
-
       > header {
          justify-content: flex-start;
          padding-left: 185px;
          min-height: 160px;
-
          h1 {
             font-size: 32px;
 
+         }
+      }
+   }
+   footer.fixed {
+      justify-content: flex-start;
+      button + button, a + a, button + a, a + button {
+         margin-right: var(--space);
+      }
+      button, a {
+         order: 1;
+         &:first-child {
+            order: 2;
          }
       }
    }
